@@ -1,0 +1,58 @@
+/* Gallery Styles */
+
+#motioncontainer {
+	position: relative;
+	overflow:hidden;
+	border-bottom: 1px solid #000;
+	border-top: 1px solid #000;
+  margin:0 auto;
+  width: 996px; /* Set to gallery width, in px or percentage */
+  height: 170px; /* Set to gallery height */
+}
+
+#motioncontainer a img {
+  border: 1px solid #cccccc; /* Set image border color */
+}
+
+#motioncontainer a:hover img {
+ /* border: 1px solid navy;*/ /* Set image border hover color */
+}
+
+#motiongallery {
+	position: absolute;
+	left: 0;
+	top: 0;
+	white-space: nowrap;
+}
+
+#statusdiv {
+  background-color: lightyellow;
+  border: 1px solid gray;
+  padding: 2px;
+  position: absolute; /* Stop Editing Gallery Styles */
+  left: -300px;
+  visibility: hidden;
+}
+
+#motioncontainer a:hover {
+  color: red; /* Dummy definition to overcome IE bug */
+}
+
+#trueContainer {
+  white-space: nowrap;
+}
+
+.galImage {
+  margin: 20px 10px 20px 10px;
+  height: 128px;
+  width: 256px;
+}
+
+.galImage:hover {
+  height: 148px;
+  margin: 10px 0px 10px 0px;
+  width: 276px;
+	-webkit-box-shadow: 5px 5px 5px #888; 
+	-moz-box-shadow: 5px 5px 5px #888;
+}
+/* End Gallery Styles */
