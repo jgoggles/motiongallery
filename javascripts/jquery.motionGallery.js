@@ -31,7 +31,7 @@ jQuery.fn.motionGallery = function(options) {
 
         function ietruebody() {
             return (document.compatMode && document.compatMode != "BackCompat") ? document.documentElement: document.body;
-        };
+        }
 
         function creatediv() {
             statusdiv = jQuery(this).append('<div></div>');
@@ -39,7 +39,7 @@ jQuery.fn.motionGallery = function(options) {
             document.body.appendChild(statusdiv);
             statusdiv = document.getElementById("statusdiv");
             statusdiv.innerHTML = options.endofgallerymsg;
-        };
+        }
 
         function positiondiv() {
             var mainobjoffset = getposOffset(crossmain, "left"),
@@ -47,51 +47,55 @@ jQuery.fn.motionGallery = function(options) {
             mainobjoffsetH = getposOffset(crossmain, "top");
             statusdiv.style.left = mainobjoffset + (menuwidth / 2) - (statusdiv.offsetWidth / 2) + "px";
             statusdiv.style.top = menuheight + mainobjoffsetH + "px";
-        };
+        }
 
         function showhidediv(what) {
             if (options.endofgallerymsg != "") {
                 positiondiv();
                 statusdiv.style.visibility = what;
             }
-        };
+        }
 
         function getposOffset(what, offsettype) {
             var totaloffset = (offsettype == "left") ? what.offset().left : what.offset().top;
             var parentEl = what.offsetParent();
-            // while (parentEl != null) {
+						// alert(parentEl.html());
+            // while (parentEl !== parentEl.offsetParent()) {
                 totaloffset = (offsettype == "left") ? totaloffset + parentEl.offset().left : totaloffset + parentEl.offset().top;
                 parentEl = parentEl.offsetParent();
+								// alert(parentEl.html());
             // }
+						// alert("im out");
             return totaloffset;
-        };
+        }
 
         function moveleft() {
-            // if (loadedyes) {
+            if (loadedyes) {
                 movestate = "left";
                 if (iedom && parseInt(cross_scroll.css("left")) > (menuwidth - actualwidth)) {
                     cross_scroll.css({"left" : parseInt(cross_scroll.css("left")) - scrollspeed + "px"});
                     // showhidediv("hidden");
                 }
-                // else
-
+                else {
                 // showhidediv("visible");
-            // }
+							}
+            }
             lefttime = setTimeout("moveleft()", 10);
-        };
+        }
 
         function moveright() {
-            // if (loadedyes) {
+            if (loadedyes) {
                 movestate = "right";
                 if (iedom && parseInt(cross_scroll.css("left")) < 0) {
                     cross_scroll.css({"left" : parseInt(cross_scroll.css("left")) + scrollspeed + "px"});
                     // showhidediv("hidden");
                 }
-                // else
+                else {
                 // showhidediv("visible");
-            // }
+							}
+            }
             righttime = setTimeout("moveright()", 10);
-        };
+        }
 
         // Main function called on mouseover
 
@@ -119,7 +123,7 @@ jQuery.fn.motionGallery = function(options) {
             }
             else
             scrollspeed = 0;
-        };
+        }
 
         function contains_ns6(a, b) {
             if (b !== null)
@@ -127,18 +131,19 @@ jQuery.fn.motionGallery = function(options) {
             if ((b = b.parentNode) == a)
             return true;
             return false;
-        };
+        }
 
         function stopmotion(e) {
-            if (!window.opera || (window.opera && e.relatedTarget !== null))
-
-            // if ((window.event && !crossmain.contains(event.toElement)) || (e && e.currentTarget && e.currentTarget != e.relatedTarget && !contains_ns6(e.currentTarget, e.relatedTarget))) 
-						{
+							// 						            if (!window.opera || (window.opera && e.relatedTarget !== null))
+							// 
+							//             if ((window.event && !crossmain.contains(event.toElement)) || (e && e.currentTarget && e.currentTarget != e.relatedTarget && !contains_ns6(e.currentTarget, e.relatedTarget))) 
+							// {
+								// alert("fu");
                 clearTimeout(lefttime);
                 clearTimeout(righttime);
                 movestate = "";
-            }
-        };
+            // }
+        }
 
 
         if (iedom) {
@@ -159,23 +164,20 @@ jQuery.fn.motionGallery = function(options) {
             actualwidth = jQuery("#trueContainer").width();
 
             // move the left style of the motiongallery element
-            if (options.startpos)
+            if (options.startpos) 
+								cross_scroll.css({'left': (menuwidth - actualwidth) / options.startpos + 'px'});
 
-            cross_scroll.css({
-                'left': (menuwidth - actualwidth) / options.startpos + 'px'
+            crossmain.mousemove(function(e) {
+                motionengine(e)
             });
-
-            crossmain.hover(function(e) {
-                motionengine(e);
-            },
-            function(e) {
-                stopmotion(e);
+            crossmain.mouseleave(function(e) {
+                stopmotion(e)
                 // showhidediv("hidden");
             });
 
         }
 
-        // loadedyes = 1
+        loadedyes = 1
         // 
         // if (options.endofgallerymsg != "") {
         //     creatediv();
@@ -197,13 +199,13 @@ jQuery.fn.motionGallery = function(options) {
                 jQuery(this).css({
                     'width': math + 'px'
                 });
-            };
+            }
             menuwidth = crossmain.width();
 						var cross_scroll_reset = options.startpos ? (menuwidth - actualwidth) / options.startpos : 0;
             cross_scroll.css({
                 'left': cross_scroll_reset + "px"
             });
-        };
+        }
 
     });
 
