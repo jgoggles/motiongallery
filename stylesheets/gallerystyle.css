@@ -11,11 +11,11 @@
 }
 
 #motioncontainer a img {
-  border: 1px solid #cccccc; /* Set image border color */
+  border: 1px solid navy; /* Set image border color */
 }
 
 #motioncontainer a:hover img {
- /* border: 1px solid navy;*/ /* Set image border hover color */
+  border: 1px solid navy; /* Set image border hover color */
 }
 
 #motiongallery {

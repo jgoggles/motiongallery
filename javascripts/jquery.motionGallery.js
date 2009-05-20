@@ -80,7 +80,7 @@ jQuery.fn.motionGallery = function(options) {
                 // showhidediv("visible");
 							}
             }
-            lefttime = setTimeout("moveleft()", 10);
+            lefttime = setTimeout(function(){moveleft()}, 10);
         }
 
         function moveright() {
@@ -94,7 +94,7 @@ jQuery.fn.motionGallery = function(options) {
                 // showhidediv("visible");
 							}
             }
-            righttime = setTimeout("moveright()", 10);
+            righttime = setTimeout(function(){moveright()}, 10);
         }
 
         // Main function called on mouseover
@@ -138,7 +138,7 @@ jQuery.fn.motionGallery = function(options) {
 							// 
 							//             if ((window.event && !crossmain.contains(event.toElement)) || (e && e.currentTarget && e.currentTarget != e.relatedTarget && !contains_ns6(e.currentTarget, e.relatedTarget))) 
 							// {
-								// alert("fu");
+								// alert(e.relatedTarget);
                 clearTimeout(lefttime);
                 clearTimeout(righttime);
                 movestate = "";
