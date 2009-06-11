@@ -1,0 +1,11 @@
+Version
+v0.0.1 (released May 19, 2009) - follow us on Twitter (http://www.twitter.com/creative_gale) for the latest release info.
+
+Description
+A jQuery plugin to produce an image gallery that scrolls left/right, faster/slower based on mouse position. We're using it on our work page, so head there for a demo. It's our modern day adaptation of the original CMotion Image Gallery which hasn't been update since 2006.
+
+Notes
+Take a look at the version number, that should tell you all you need to know: it's raw. Be careful it's like a little baby shark. If you're looking for something that will work out of the box, this is not it. We haven't even gotten around to writing documentation for it yet. If you're feeling adventurous go ahead and download it— happy hacking :)
+
+Download
+Source with example code - http://github.com/jgoggles/motiongallery/tree/master
